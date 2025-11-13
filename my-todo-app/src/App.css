@@ -1,0 +1,47 @@
+/*
+  Enter Animation:
+  - A task item fades in and drops down slightly.
+  - This gives a smooth, welcoming effect when a new task is added.
+*/
+@keyframes task-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-15px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/*
+  Exit Animation:
+  - A task item fades out and shrinks.
+*/
+@keyframes task-exit {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+/*
+  Base Task Item Styling:
+  - The 'animation' is for the ENTER animation. It runs once when the
+    element is first added to the DOM.
+*/
+.task-item {
+  animation: task-enter 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/*
+  Exit Animation Trigger:
+  - When this class is applied, the exit animation is triggered.
+*/
+.task-exit-active {
+  animation: task-exit 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
